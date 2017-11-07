@@ -1,13 +1,12 @@
 <div class="app">
-  {{ title + '!'}}
-  <div>
-    {{ numberOne + numberTwo }}
-  </div>
-  <div>
-    {{ isHappy ? ':)' : ':(' }}
-  </div>
-  <h1 [innerHTML]="title"></h1>
-  <input type="text" [value]="name">
+  <button type="button" (click)="handleClick()">
+    Change name
+  </button>
+  <input
+    type="text"
+    [value]="name"
+    (input)="handleInput($event)"
+    (blur)="handleBlur($event)">
   <h1>
     {{ name }}
   </h1>
