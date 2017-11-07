@@ -10,4 +10,9 @@
   <div *ngIf="name.length > 2">
     Searching for... {{ name }}
   </div>
+
+  <template [ngIf]="name.length > 2">
+    Searching for... {{ name }}
+  </template>
+
 </div>
