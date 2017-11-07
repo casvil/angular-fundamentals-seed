@@ -10,6 +10,7 @@ export class AppComponent {
   isHappy: boolean = true;
   numberOne: number = 1;
   numberTwo: number = 2;
+  name: string = 'David';
 
   constructor() {
     this.title = 'Ultimate Angular'
