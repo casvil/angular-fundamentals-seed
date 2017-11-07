@@ -1,8 +1,18 @@
 <div class="app">
   <h3>Airline Passengers</h3>
   <ul>
-    <li *ngFor="let passenger of passengers">
-      {{ passenger.id }}: {{ passenger.fullname }}
+    <template ngFor let-passenger let-i="index" [ngForOf]="passengers">
+      <li>
+        {{ i }}: {{ passenger.fullname }}
+        {{ passenger.checkedIn }}
+      </li>
+    </template>
+  </ul>
+  <br>
+  <h3>Airline Passengers</h3>
+  <ul>
+    <li *ngFor="let passenger of passengers; let i = index;">
+      {{ i }}: {{ passenger.fullname }}
       {{ passenger.checkedIn }}
     </li>
   </ul>
