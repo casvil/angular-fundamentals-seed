@@ -12,11 +12,7 @@ export class AppComponent {
     this.name = 'David Casanellas';
   }
 
-  handleBlur(event: any) {
-    this.name = event.target.value;
-  }
-
-  handleInput(event: any) {
-    this.name = event.target.value;
+  handleChange(value: string) {
+    this.name = value;
   }
 }
