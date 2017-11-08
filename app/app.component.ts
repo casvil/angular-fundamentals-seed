@@ -1,40 +1,8 @@
 import { Component } from '@angular/core';
 
-interface Passenger {
-  id: number,
-  fullname: string,
-  checkedIn: boolean,
-  checkedInDate: number | null,
-}
-
 @Component({
   selector: 'app-root',
   styleUrls: ['app.component.scss'],
   templateUrl: './app.component.html'
 })
-export class AppComponent {
-  name: string = 'David';
-
-  handleChange(value: string) {
-    this.name = value;
-  }
-
-  passengers: Passenger[] = [{
-    id: 1,
-    fullname: 'Stephen',
-    checkedIn: true,
-    checkedInDate: 1510076727384
-  },
-  {
-    id: 2,
-    fullname: 'Michael',
-    checkedIn: false,
-    checkedInDate: null
-  },
-  {
-    id: 3,
-    fullname: 'David',
-    checkedIn: true,
-    checkedInDate: 1510076745790
-  }];
-}
+export class AppComponent {}
