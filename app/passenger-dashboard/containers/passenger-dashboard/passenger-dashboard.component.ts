@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Passenger } from '../../models/index';
 
@@ -14,7 +14,6 @@ import { Passenger } from '../../models/index';
             class="status"
             [class.checked-in]="passenger.checkedIn"></span>
           {{ i }}: {{ passenger.fullname }}
-          <p>{{ passenger | json }}</p>
           <div class="date">
             Check in date:
             {{ passenger.checkedInDate ? (passenger.checkedInDate | date: 'yMMMMd' | uppercase) : 'Not checked in' }}
@@ -24,23 +23,27 @@ import { Passenger } from '../../models/index';
     </div>
   `
 })
-export class PassengerDashboardComponent {
-  passengers: Passenger[] = [{
-    id: 1,
-    fullname: 'Stephen',
-    checkedIn: true,
-    checkedInDate: 1510076727384
-  },
-  {
-    id: 2,
-    fullname: 'Michael',
-    checkedIn: false,
-    checkedInDate: null
-  },
-  {
-    id: 3,
-    fullname: 'David',
-    checkedIn: true,
-    checkedInDate: 1510076745790
-  }];
+export class PassengerDashboardComponent implements OnInit {
+  passengers: Passenger[];
+  constructor() {}
+  ngOnInit() {
+    this.passengers = [{
+      id: 1,
+      fullname: 'Stephen',
+      checkedIn: true,
+      checkedInDate: 1510076727384
+    },
+    {
+      id: 2,
+      fullname: 'Michael',
+      checkedIn: false,
+      checkedInDate: null
+    },
+    {
+      id: 3,
+      fullname: 'David',
+      checkedIn: true,
+      checkedInDate: 1510076745790
+    }]
+  }
 }

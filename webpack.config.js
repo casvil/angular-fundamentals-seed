@@ -94,6 +94,11 @@ module.exports = {
     crypto: 'empty'
   },
   plugins: [
+    new webpack.ContextReplacementPlugin(
+      // The (\\|\/) piece accounts for path separators in *nix and Windows
+      /angular(\\|\/)core(\\|\/)@angular/,
+      {} // a map of your routes
+    ),
     new webpack.DllReferencePlugin({
       context: './',
       manifest: require(path.resolve(cwd, 'vendor/vendor-manifest.json'))
