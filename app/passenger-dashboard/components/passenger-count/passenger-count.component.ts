@@ -8,7 +8,7 @@ import { Passenger } from '../../models';
     <div>
       <h3>Airline Passengers</h3>
       <div>
-        Total passengers: {{ checkInCount() }} / {{ items.length }}
+        Total passengers: {{ checkInCount() }} / {{ items?.length }}
       </div>
     </div>
   `
