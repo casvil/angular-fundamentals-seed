@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Passenger } from '../../models/index';
+import { Passenger } from '../../models';
 
 @Component({
   selector: 'passenger-dashboard',
@@ -23,6 +23,7 @@ export class PassengerDashboardComponent implements OnInit {
   passengers: Passenger[];
   constructor() {}
   ngOnInit() {
+    console.log('on init')
     this.passengers = [{
       id: 1,
       fullname: 'Stephen',
@@ -43,11 +44,11 @@ export class PassengerDashboardComponent implements OnInit {
     }]
   }
 
-  handleRemove(event) {
+  handleEdit(event) {
     console.log(event);
   }
 
-  handleEdit(event) {
+  handleRemove(event) {
     console.log(event);
   }
 }
