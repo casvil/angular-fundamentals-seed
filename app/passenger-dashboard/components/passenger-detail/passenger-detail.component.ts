@@ -27,13 +27,17 @@ import { Passenger } from '../../models';
       <button (click)="onRemove()">
         Remove
       </button>
+      <button (click)="goToPassenger()">
+        View
+      </button>
     </div>
   `
 })
 export class PassengerDetailComponent implements OnChanges, OnInit {
   @Input() detail: Passenger;
-  @Output() edit: EventEmitter<any> = new EventEmitter();
-  @Output() remove: EventEmitter<any> = new EventEmitter();
+  @Output() edit: EventEmitter<Passenger> = new EventEmitter<Passenger>();
+  @Output() remove: EventEmitter<Passenger> = new EventEmitter<Passenger>();
+  @Output() view: EventEmitter<Passenger> = new EventEmitter<Passenger>();
   editing: boolean = false;
 
   ngOnChanges(changes) {
@@ -45,6 +49,10 @@ export class PassengerDetailComponent implements OnChanges, OnInit {
 
   ngOnInit() {
     // console.log('onInit, called after ngOnChanges');
+  }
+
+  goToPassenger() {
+    this.view.emit(this.detail);
   }
 
   onNameChange(value: string) {
