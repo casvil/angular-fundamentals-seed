@@ -11,6 +11,18 @@
       "fullname": "Michael",
       "checkedIn": false,
       "checkedInDate": null
+    },
+    {
+      "id": 3,
+      "fullname": "Peter",
+      "checkedIn": true,
+      "checkedInDate": 1521654753314
+    },
+    {
+      "id": 4,
+      "fullname": "Jason",
+      "checkedIn": true,
+      "checkedInDate": 1464336654484
     }
   ]
 }

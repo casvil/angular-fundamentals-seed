@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 
 // containers
-import { PassengerDashboardComponent } from './containers';
+import { PassengerDashboardComponent, PassengerViewerComponent } from './containers';
 
 // components
 import {
@@ -16,18 +16,19 @@ import { PassengerDashboardService } from './passenger-dashboard.service';
 
 @NgModule({
   declarations: [
+    // smart containers
     PassengerDashboardComponent,
+    PassengerViewerComponent,
+    // dumb components
     PassengerCountComponent,
-    PassengerDetailComponent
+    PassengerDetailComponent,
   ],
   imports: [
     CommonModule,
     HttpModule
   ],
   exports: [
-    PassengerDashboardComponent,
-    PassengerCountComponent,
-    PassengerDetailComponent
+    PassengerViewerComponent
   ],
   providers: [
     PassengerDashboardService
