@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
 // containers
 import {
@@ -19,6 +20,13 @@ import {
 // service
 import { PassengerDashboardService } from './passenger-dashboard.service';
 
+const routes: Routes = [
+  {
+    path: 'passengers',
+    component: PassengerDashboardComponent
+  }
+];
+
 @NgModule({
   declarations: [
     // smart containers
@@ -32,10 +40,8 @@ import { PassengerDashboardService } from './passenger-dashboard.service';
   imports: [
     CommonModule,
     HttpModule,
-    FormsModule
-  ],
-  exports: [
-    PassengerViewerComponent
+    FormsModule,
+    RouterModule.forChild(routes),
   ],
   providers: [
     PassengerDashboardService
