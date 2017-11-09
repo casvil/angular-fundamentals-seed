@@ -9,20 +9,31 @@ import { Passenger, Baggage } from '../../models';
     <form #form="ngForm" novalidate>
       {{ detail | json }}
 
-      <div>
+      <div class="field">
         Passenger name:
         <input
           type="text"
           name="fullname"
+          required
+          #fullname="ngModel"
           [ngModel]="detail?.fullname" />
+        <div *ngIf="fullname.errors?.required && fullname.dirty" class="error">
+          Passenger name is required
+        </div>
       </div>
 
-      <div>
+
+      <div class="field">
         Passenger ID:
         <input
           type="number"
           name="id"
+          required
+          #id="ngModel"
           [ngModel]="detail?.id" />
+        <div *ngIf="id.errors?.required && id.dirty" class="error">
+          Passenger ID is required
+        </div>
       </div>
 
       <div>
@@ -50,16 +61,6 @@ import { Passenger, Baggage } from '../../models';
           [ngModel]="detail?.baggage">
           <option
             *ngFor="let item of baggage"
-            [value]="item.key"
-            [selected]="item.key === detail?.baggage">
-            {{ item.value }}
-          </option>
-        </select>
-        <select
-          name="baggage"
-          [ngModel]="detail?.baggage">
-          <option
-            *ngFor="let item of baggage"
             [ngValue]="item.key">
             {{ item.value }}
           </option>
@@ -67,6 +68,8 @@ import { Passenger, Baggage } from '../../models';
       </div>
 
       {{ form.value | json }}
+      <div>Valid {{ id.valid | json }}</div>
+      <div>Invalid {{ id.invalid | json }}</div>
     </form>
   `
 })
